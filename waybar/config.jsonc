@@ -1,0 +1,211 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 35, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    "margin-right": 10,
+    "margin-left": 10,
+    "margin-top": 3,
+    "margin-bottom": -5,
+    "reload_style_on_change": true,
+    // "margin-bottom": 1,
+    // Choose the order of the modules
+    // "mode": "dock"
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window",
+        "hyprland/submap"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory",
+        "temperature",
+        "battery",
+        "clock",
+        "custom/powermenu"
+    ],
+    // Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            // "5": "",
+            "default": "",
+            "special": ""
+        },
+        "persistent-workspaces": {
+          "*": [1, 2, 3, 4]
+        },
+        "show-special": true
+    },
+    // "keyboard-state": {
+    //     "numlock": true,
+    //     "capslock": true,
+    //     "format": "{name} {icon}",
+    //     "format-icons": {
+    //         "locked": "",
+    //         "unlocked": ""
+    //     }
+    // },
+    "hyprland/window": {
+       "format": "<big>{initialTitle}</big>" 
+    },
+    "hyprland/submap": {
+        "format": "{}",
+        "tooltip": false
+    },
+    // "sway/scratchpad": {
+    //     "format": "{icon} {count}",
+    //     "show-empty": false,
+    //     "format-icons": ["", ""],
+    //     "tooltip": true,
+    //     "tooltip-format": "{app}: {title}"
+    // },
+
+
+    // "mpd": {
+    //     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    //     "format-disconnected": "Disconnected ",
+    //     "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    //     "unknown-tag": "N/A",
+    //     "interval": 5,
+    //     "consume-icons": {
+    //         "on": " "
+    //     },
+    //     "random-icons": {
+    //         "off": "<span color=\"#f53c3c\"></span> ",
+    //         "on": " "
+    //     },
+    //     "repeat-icons": {
+    //         "on": " "
+    //     },
+    //     "single-icons": {
+    //         "on": "1 "
+    //     },
+    //     "state-icons": {
+    //         "paused": "",
+    //         "playing": ""
+    //     },
+    //     "tooltip-format": "MPD (connected)",
+    //     "tooltip-format-disconnected": "MPD (disconnected)"
+    // },
+    
+    // "tray": {
+    //     // "icon-size": 21,
+    //     "spacing": 10
+    // },
+    "clock": {
+        "tooltip-format": "<big>{:%d %m %y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d %m %Y}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true
+    },
+    "memory": {
+        "format": "{}% ",
+        "on-click": "alacritty -e btop"
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "tooltip": false
+    },
+    // "backlight": {
+    //     // "device": "acpi_video1",
+    //     "format": "{percent}% {icon}",
+    //     "format-icons": ["", "", "", "", "", "", "", "", ""]
+    // },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip":false
+    },
+    // "power-profiles-daemon": {
+    //   "format": "{icon}",
+    //   "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    //   "tooltip": true,
+    //   "format-icons": {
+    //     "default": "",
+    //     "performance": "",
+    //     "balanced": "",
+    //     "power-saver": ""
+    //   }
+    // },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{signalStrength}% ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr}  \n{essid}: {ipaddr}",
+        "format-disconnected": " ⚠",
+        "on-click": "alacritty -e iwctl"
+        // "format-alt": "{essid}: {ipaddr}"
+        // "format-linked": "{ifname} (No IP) ",
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        // "on-click": "GTK_THEME=catppuccin-mocha-mauve-standard+default pavucontrol",
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/sound_menu.xml",
+        "menu-actions": {
+          "volume": "GTK_THEME=catppuccin-mocha-mauve-standard+default pavucontrol",
+          "bluetooth": "alacritty -e bluetoothctl",
+          "visualizer": "alacritty -e vis"
+        },
+        "tooltip": false
+    },
+    
+    "custom/powermenu": {
+        "format" : "<big></big>",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+		"menu-actions": {
+			"shutdown": "systemctl poweroff",
+			"reboot": "reboot",
+			"suspend": "hyprlock & systemctl suspend",
+			"hibernate": "systemctl hibernate"
+		}
+    }
+}

@@ -1,0 +1,271 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 13px;
+}
+
+
+window#waybar {
+    background-color: transparent;
+    transition-property: all;
+    transition-duration: .5s;
+    /* margin: 10px 10px 10px 10px; */
+    /* border-style: solid; */
+    /* border-color: #cba6f7; */
+    /* border-radius: 8px; */
+    /* border-width: 1px; */
+    /* transition-property: background-color; */
+    /* transition-duration: .5s; */
+}
+
+/* window#waybar.hidden { */
+/*     opacity: 0.2; */
+/* } */
+
+
+
+
+
+
+.modules-left {
+  background-color: rgba(24, 24, 37, 0.5);
+  border-style: solid;
+  border-color: #cba6f7;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 2 5 2 5;
+  
+}
+
+.modules-right{
+  background-color: rgba(24, 24, 37, 0.5);
+  border-style: solid;
+  border-color: #cba6f7;
+  border-radius: 10px;
+  border-width: 1px;
+  padding: 2 5 2 5;
+}
+
+/* .modules-center { */
+/*   background-color: #181825; */
+/*   border-style: solid; */
+/*   border-color: #cba6f7; */
+/*   border-radius: 10px; */
+/*   border-width: 1px; */
+  /* margin: 6 0 6 0; */
+/*   padding: 0 8 0 8; */
+/*   color: #cdd6f4; */
+/* } */
+
+
+/* button { */
+/**/
+/* } */
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+
+
+/* you can set a style on hover for any module like this */
+
+
+#workspaces button {
+    padding: 0 5 0 2;
+    background-color: #1e1e2e;
+    margin: 4px 4px 4px 4px;
+    color: #cba6f7;
+    border-style: solid;
+    border-color: #cba6f7;
+    border-width: 1px;
+    border-radius: 5px;
+    transition-property: all;
+    transition-duration: .5s;
+
+}
+
+/* #workspaces button:hover { */
+/*     background: rgba(0, 0, 0, 0.2); */
+/* } */
+
+
+
+#workspaces button:hover { 
+     background-color: rgba(108, 112, 134,0.5);
+     text-shadow: none;
+     box-shadow:none;
+     background-image: none;
+} 
+
+#workspaces button.active{
+  /* color: #8caaee; */
+  box-shadow: inset 0px -4px rgba(98, 104, 128,0.5);
+  transition-property: all;
+  transition-duration: .5s;
+
+}
+ /* #workspaces button:hover:first-child { */
+ /*   background-color: #111111; */
+ /* } */
+
+
+
+#window {
+   background-color: rgba(24, 24, 37, 0.5); 
+   border-style: solid; 
+   border-color: #cba6f7; 
+   border-radius: 10px; 
+   border-width: 1px;
+   padding: 0 30 0 30;
+   /* color: #cdd6f4;  */
+   color: #cba6f7;
+
+}
+window#waybar.empty #window {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#submap {
+  color: #89dceb;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #89dceb;
+  border-radius: 10px;
+  padding: 0 8 0 8;
+  transition-property: all;
+  transition-duration: .5s;
+}
+
+/* #mode { */
+/*     background-color: #64727D; */
+/*     box-shadow: inset 0 -3px #ffffff; */
+/* } */
+
+
+#custom-powermenu,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray,
+#mpd {
+    color: #cba6f7;
+    /* color: #cdd6f4; */
+    padding: 0 10 0 4;
+    margin: 4px 2px 4px 2px;
+    background-color: rgba(24, 24, 37, 0.5);
+    border: 1px solid #cba6f7;
+    border-radius: 10px;
+    transition-property: all;
+    transition-duration: .5s;
+}
+
+/* #battery, */
+/* #network, */
+/* #pulseaudio { */
+/*   padding: 0 15 0 10; */
+/* } */
+/**/
+#custom-powermenu {
+  padding-left: 5px;
+}
+#pulseaudio,
+#battery,
+#network {
+  padding-right: 12px;
+}
+#temperature,
+#clock {
+  padding-right: 4px;
+}
+#pulseaudio:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#battery:hover,
+#clock:hover,
+#custom-powermenu:hover{
+    background-color: rgba(108, 112, 134,0.5);
+}
+
+
+#battery.charging, #battery.plugged {
+  border-color: #a6e3a1;
+}
+
+@keyframes blink {
+    to {
+      border-color: #cba6f7;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    border-color: #f38ba8;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+
+
+
+
+#network.disconnected {
+  border-color: #f38ba8;
+}
+
+tooltip {
+  background-color: rgba(24, 24, 37,0.9);
+  border: 1px solid #45475a;
+}
+
+tooltip label{
+  /* color: #cdd6f4; */ 
+  color: #cba6f7;
+}
+
+/**/
+/* label:focus { */
+/*     background-color: #ffffff; */
+/* } */
+
+
+/* #tray > .passive { */
+/*     -gtk-icon-effect: dim; */
+/* } */
+/**/
+/* #tray > .needs-attention { */
+/*     -gtk-icon-effect: highlight; */
+/*     background-color: #eb4d4b; */
+/* } */
+
+menu {
+  border: 1px solid #45475a;
+  background-color: rgba(17, 17, 27,0.8);
+  color: #cba6f7;
+
+  /* background-color: transparent; */
+  /* border: none; */
+  /* border-color: transparent; */
+  
+}
+menuitem {
+  background-color: rgba(24, 24, 37,0.9);
+  border: 1px solid #45475a;
+  border-radius: 10px;
+  color: #cba6f7;
+  margin: 10px;
+}
+
+menuitem:hover {
+  border: 1px solid #cba6f7;
+}
+
