@@ -189,9 +189,9 @@
         "menu": "on-click",
         "menu-file": "$HOME/.config/waybar/sound_menu.xml",
         "menu-actions": {
-          "volume": "GTK_THEME=catppuccin-mocha-mauve-standard+default pavucontrol",
-          "bluetooth": "alacritty -e bluetoothctl",
-          "visualizer": "alacritty -e vis"
+          "volume": "hyprctl dispatch exec -- GTK_THEME=catppuccin-mocha-mauve-standard+default pavucontrol",
+          "bluetooth": "hyprctl dispatch exec -- alacritty -e bluetoothctl",
+          "visualizer": "hyprctl dispatch exec -- alacritty -e vis"
         },
         "tooltip": false
     },
